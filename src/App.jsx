@@ -1,13 +1,20 @@
 import { useState } from 'react'
-import ContactList from './components/ContactList'
+import ContactList from './components/ContactList.jsx'
+import ContactView from './components/ContactView.jsx'
 import './App.css'
+import './index.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [selectedId, setSelectedId] = useState(null);
+  console.log('SelectedId::', selectedId);
 
   return (
     <>
-      <ContactList />
+    {
+      (!selectedId) 
+      ? <ContactList setSelectedId = {setSelectedId}/> 
+      : <ContactView  selectedId = {selectedId}/>
+    }
     </>
   )
 }
